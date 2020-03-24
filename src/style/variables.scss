@@ -1,0 +1,28 @@
+$mini: 24px;
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.el-button--mini {
+    display: inline-block;
+    height: $mini;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+/deep/ .el-color-picker--mini .el-color-picker__trigger{
+    width: 24px;
+    height: 24px;
+}
+
+/* 改变主题色变量 */
+$--color-primary: #262c33;
+
+:root {
+    --Main: #1c2026;
+    --Main-light: #262c33;
+    --Main-lighter: #2e343c;
+    --mini-height: $mini;
+}

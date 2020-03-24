@@ -1,0 +1,39 @@
+<div class="main">
+    <datav-header v-model="panel" :pageConfigInfo="pageConfigInfo" @uploadFile="uploadFile"></datav-header>
+    <div class="main-content-warpper">
+        <div class="left-panel">
+            <datav-layer-panel :showPanel="panel.showLayerPanel" @changeShowPanel="changeShowLayerPanel"  @onActivated="onActivated" v-model="pageConfigInfo.componentList"></datav-layer-panel>
+            <datav-component-panel v-model="panel.showComponentPanel" @addComponent="addComponent"></datav-component-panel>
+        </div>
+        <div class="edit-body">
+            <div class="inner-content">
+                <div class="dashboard-container" :style="getDashboardStyle" @click="onClickComponetOutsider($event)">
+                    <div class="component-list">
+                        <drag-item-box
+                            v-for="(item, index) in pageConfigInfo.componentList"
+                            :key="item.componentNo"
+                            v-model="pageConfigInfo.componentList[index]"
+                            :showGrid="showGrid"
+                            :editable="true"
+                            @changeShowGrid="changeShowGrid"
+                            @onActivated="onActivated"
+                            @onDeactivated="onDeactivated"
+                            @deleteDragItem="deleteDragItem"
+                            @copyDragItem="copyDragItem">
+                            <component :is="item.componentName" v-model="pageConfigInfo.componentList[index]"></component>
+                        </drag-item-box>
+                    </div>
+                    <div class="backgroud-image" :style="{ backgroundImage:'url(' + pageConfigInfo.bgImage + ')' }"></div>
+                    <div class="dashboard-grid-overlay" v-if="showGrid"></div>
+                </div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <datav-right-panel :showPanel="panel.showRightPanel" @change-show-panel="changeShowRightPanel" :selectedComponent="selectedPanelComponent" v-model="pageConfigInfo"></datav-right-panel>
+        </div>
+    </div>
+    <div class="bottom-control-panel">
+        <span class="percent">{{pageConfigInfo.percent}}%</span>
+        <el-slider v-model="pageConfigInfo.percent" :min="10" :max="200" height="30px"></el-slider>
+    </div>
+</div>

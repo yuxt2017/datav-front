@@ -1,0 +1,20 @@
+<div class="main">
+    <div class="main-content-warpper">
+        <div class="edit-body">
+            <div class="inner-content">
+                <div class="dashboard-container" :style="getDashboardStyle" @click="onClickComponetOutsider($event)">
+                    <div class="component-list">
+                        <drag-item-box
+                            v-for="(item, index) in pageConfigInfo.componentList"
+                            :key="item.componentNo"
+                            :editable="false"
+                            v-model="pageConfigInfo.componentList[index]">
+                            <component :is="item.componentName" v-model="pageConfigInfo.componentList[index]"></component>
+                        </drag-item-box>
+                    </div>
+                    <div class="backgroud-image" :style="{ backgroundImage:'url(' + pageConfigInfo.bgImage + ')' }"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

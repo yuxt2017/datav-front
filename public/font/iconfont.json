@@ -1,0 +1,79 @@
+{
+  "id": "1708842",
+  "name": "datav",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "695714",
+      "name": "收藏",
+      "font_class": "like",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "879167",
+      "name": "盒子",
+      "font_class": "component",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "1790021",
+      "name": "图表-柱状图",
+      "font_class": "chart",
+      "unicode": "e6db",
+      "unicode_decimal": 59099
+    },
+    {
+      "icon_id": "2678595",
+      "name": "多媒体",
+      "font_class": "meidia",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "3248595",
+      "name": "图层",
+      "font_class": "layer",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "6627431",
+      "name": "保存",
+      "font_class": "save",
+      "unicode": "e6c4",
+      "unicode_decimal": 59076
+    },
+    {
+      "icon_id": "7255841",
+      "name": "right",
+      "font_class": "right",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "8778473",
+      "name": "地图",
+      "font_class": "map",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "10352343",
+      "name": "文本",
+      "font_class": "text",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "13106274",
+      "name": "其他",
+      "font_class": "other",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    }
+  ]
+}

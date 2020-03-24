@@ -1,0 +1,90 @@
+<div class="index">
+    <div class="header-img">
+        <el-image class="bg" :src="bgSrc">
+            <div slot="placeholder">请稍等...</div>
+        </el-image>
+        <el-image class="title"
+            src="https://img.alicdn.com/tfs/TB1WYB9OVYqK1RjSZLeXXbXppXa-1134-153.png"></el-image>
+    </div>
+    <div class="nav-main">
+        <el-tabs v-model="tabIndex">
+            <el-tab-pane label="我的可视化" name="0"></el-tab-pane>
+            <el-tab-pane label="我的组件" name="1"></el-tab-pane>
+        </el-tabs>
+        <div class="nav-shadow"></div>
+    </div>
+    <div class="datav-main" v-if="tabIndex == 0">
+        <div class="project-manage">
+            <div class="my-project project-group-title">
+                <span>我的分组</span>
+                <i class="el-icon-plus icon-add" @click="onAddGroupItem"></i>
+            </div>
+            <div class="my-project project-group-item" :class="{'checked':
+                groupIndex == -1}" @click="groupIndex= -1">
+                <span>全部大屏</span>
+                <span class="project-num">1</span>
+            </div>
+            <div class="my-project project-group-item edit"
+                v-for="(item, index) in items" :key="index"
+                :class="{'checked': groupIndex == (index+1)}"
+                @click="groupIndex = index+1">
+                <span v-if="!item.isEdit">{{item.name}}</span>
+                <el-input class="edit-input" v-if="item.isEdit" ref="groupItemInput" type="text" v-model="item.name" @blur="onItemEditInputBlur(item)" autofocus></el-input>
+                <span class="project-num">{{item.num}}</span>
+                <div class="icon-btns">
+                    <i class="el-icon-edit" @click="onEditGroupItem(item)"></i>
+                    <i class="el-icon-delete" @click="deleteGroupItem(index)"></i>
+                </div>
+            </div>
+            <div class="my-project project-group-item" v-if="showEditInput">
+                <el-input class="add-input" type="text" v-model="groupName" @blur="onAddInputBlur" ref="addGroupInput" autofocus></el-input>
+            </div>
+            <div class="my-project project-group-item" :class="{'checked':
+                groupIndex == -2}" @click="groupIndex= -2">
+                <span>未分组</span>
+                <span class="project-num">1</span>
+            </div>
+        </div>
+        <div class="project-screen-list">
+            <div class="project-header">
+                <div class="project-title">全部大屏</div>
+            </div>
+            <div class="main-screen">
+                <div class="my-screen">
+                    <div class="new-screen" @click="jumpScreenPage">
+                        <span class="span-spacing">新建可视化</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="datav-main" v-if="tabIndex == 1">
+        <div class="project-screen-list">
+            <div class="project-header">
+                <div class="project-title">组件列表</div>
+            </div>
+            <div class="main-screen">
+                <div class="component-list">
+                    <div class="component-item-wrapper">
+                        <div class="component-item">
+                            <div class="item-title">基本折线图</div>
+                            <div class="item-img">
+                                <el-image
+                                    src="http://img.alicdn.com/tfs/TB1PhI1mHr1gK0jSZR0XXbP8XXa-332-144.png"></el-image>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component-item-wrapper">
+                        <div class="component-item">
+                            <div class="item-title">基本柱状图图</div>
+                            <div class="item-img">
+                                <el-image
+                                    src="http://img.alicdn.com/tfs/TB1PhI1mHr1gK0jSZR0XXbP8XXa-332-144.png"></el-image>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
