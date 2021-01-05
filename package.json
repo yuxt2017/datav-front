@@ -11,7 +11,7 @@
   "dependencies": {
     "@types/echarts": "^4.4.3",
     "@types/md5": "^2.1.33",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "core-js": "^3.6.4",
     "crypto-js": "^4.0.0",
     "echarts": "^4.6.0",
